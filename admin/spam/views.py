@@ -1,7 +1,22 @@
 from django.shortcuts import render, render_to_response
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
-from .serializers import serialize_comments, retrieve_comment
+from modularodm import Q
+from modularodm.exceptions import NoResultsFound
+from website.project.model import Comment
+
+from .serializers import serialize_comments, retrieve_comment, AdminComment
+
+
+class CommentList(object):
+    serializer_class = AdminComment
+
+    def get_comment_list(self):
+        try:
+            comments = Comment.find(Q('reports', 'ne', {}))
+        except NoResultsFound:
+            comments = {}
+        return comments
 
 
 def spam_list(request):

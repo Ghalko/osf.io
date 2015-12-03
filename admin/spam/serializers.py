@@ -1,6 +1,15 @@
+from modularodm import Q
+from api.comments.serializers import CommentSerializer, CommentReportSerializer
 from website.project.model import Comment, User
 from website.profile.utils import serialize_user
-from modularodm import Q
+
+
+class AdminComment(CommentSerializer):
+    pass
+
+
+class AdminCommentReport(CommentReportSerializer):
+    pass
 
 
 def serialize_comment(comment, full=False):

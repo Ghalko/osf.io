@@ -312,41 +312,41 @@ def make_url_map(app):
             OsfWebRenderer('public/comingsoon.mako', trust=False)
         ),
 
-        Rule(
-            '/view/<meeting>/',
-            'get',
-            conference_views.conference_results,
-            OsfWebRenderer('public/pages/meeting.mako', trust=False),
-        ),
-
-        Rule(
-            '/view/<meeting>/plain/',
-            'get',
-            conference_views.conference_results,
-            OsfWebRenderer('public/pages/meeting_plain.mako', trust=False),
-            endpoint_suffix='__plain',
-        ),
-
-        Rule(
-            '/api/v1/view/<meeting>/',
-            'get',
-            conference_views.conference_data,
-            json_renderer,
-        ),
-
-        Rule(
-            '/meetings/',
-            'get',
-            conference_views.conference_view,
-            OsfWebRenderer('public/pages/meeting_landing.mako', trust=False),
-        ),
-
-        Rule(
-            '/api/v1/meetings/submissions/',
-            'get',
-            conference_views.conference_submissions,
-            json_renderer,
-        ),
+        # Rule(
+        #     '/view/<meeting>/',
+        #     'get',
+        #     conference_views.conference_results,
+        #     OsfWebRenderer('public/pages/meeting.mako', trust=False),
+        # ),
+        #
+        # Rule(
+        #     '/view/<meeting>/plain/',
+        #     'get',
+        #     conference_views.conference_results,
+        #     OsfWebRenderer('public/pages/meeting_plain.mako', trust=False),
+        #     endpoint_suffix='__plain',
+        # ),
+        #
+        # Rule(
+        #     '/api/v1/view/<meeting>/',
+        #     'get',
+        #     conference_views.conference_data,
+        #     json_renderer,
+        # ),
+        #
+        # Rule(
+        #     '/meetings/',
+        #     'get',
+        #     conference_views.conference_view,
+        #     OsfWebRenderer('public/pages/meeting_landing.mako', trust=False),
+        # ),
+        #
+        # Rule(
+        #     '/api/v1/meetings/submissions/',
+        #     'get',
+        #     conference_views.conference_submissions,
+        #     json_renderer,
+        # ),
 
         Rule(
             '/presentations/',
